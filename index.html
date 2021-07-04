@@ -3,15 +3,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,700&display=swap" rel="stylesheet">
-    <title>Calculator by aguskolod</title>
-    <link rel="shortcut icon" type="image/png" href="the icon here">
+    <title>Basic Calculator made by aguskolod</title>
+    <link rel="shortcut icon" type="image/png" href="the icon">
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
     <div class="container">
         <p class="Calculator"><u>Calculator</u></p>
         <input type="number" id="n1" class="n1" placeholder="Insert numer 1"></input>
-        <p class="mas">+</p>
+        <select name="mas" id="sel" class="sel">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
         <p id="fully"></p>
         <input type="number" id="n2" class="n2" placeholder="Insert numer 2"></input>
         <button id="button" class="button" onclick="clicked()">Result</button>
@@ -21,11 +26,21 @@
         function clicked() {
             var n1 = document.getElementById("n1").value;
             var n2= document.getElementById("n2").value;
-            if(!n1 || !n2) {
+            var e = document.getElementById("sel").value;
+            if(!n1 || !n2 || n1 === 'e' || n2 === 'e') {
                 return alert("Error. Please complete the fields with numbers!")
             }
+            if(e === '+'){
+                var result = Number(n1) + Number(n2)
+            }else if(e === '-'){
+                var result = Number(n1) - Number(n2)
+            }else if(e === '*'){
+                var result = Number(n1) * Number(n2)
+            }else if(e === '/'){
+                var result = Number(n1) / Number(n2)
+            }
             document.getElementById("button").style.display = "none";
-            document.getElementById("fully").innerHTML = `${n1} + ${n2} = ${Number(n1) + Number(n2)}`;
+            document.getElementById("fully").innerHTML = `${n1} ${e} ${n2} = ${result}`;
             setTimeout(() => {
                 document.getElementById("fully").innerHTML = ""
                 document.getElementById("button").style.display = "block";
