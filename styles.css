@@ -90,3 +90,7 @@ body {
 @keyframes anima {
     0% {transform: translate(100%);}
 }
+@keyframes linea {
+    0% {border-bottom: none;}
+    90% {border-bottom: 2px solid rgb(29, 194, 29);}
+}

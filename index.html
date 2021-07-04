@@ -10,24 +10,28 @@
 <body>
     <div class="container">
         <p class="Calculator"><u>Calculator</u></p>
-        <input type="number" id="n1" class="n1" placeholder="Insert numer 1"></input>
-        <select name="mas" id="sel" class="sel">
+        <input type="number" onkeydown="return event.keyCode !== 69"  id="n1" class="n1" placeholder="Insert numer 1"></input>
+        <select name="mas" onchange="changed()" id="sel" class="sel">
             <option value="+">+</option>
             <option value="-">-</option>
             <option value="*">*</option>
             <option value="/">/</option>
         </select>
         <p id="fully"></p>
-        <input type="number" id="n2" class="n2" placeholder="Insert numer 2"></input>
+        <input type="number" onkeydown="return event.keyCode !== 69" id="n2" class="n2" placeholder="Insert numer 2"></input>
         <button id="button" class="button" onclick="clicked()">Result</button>
     </div>
     <script>
-        
+        function changed() {
+            alert("Changed")
+            let item = document.getElementById("sel");
+            item.style.animation = 'linea .4s ease'
+        }
         function clicked() {
             var n1 = document.getElementById("n1").value;
             var n2= document.getElementById("n2").value;
             var e = document.getElementById("sel").value;
-            if(!n1 || !n2 || n1 === 'e' || n2 === 'e') {
+            if(!n1 || !n2 ) {
                 return alert("Error. Please complete the fields with numbers!")
             }
             if(e === '+'){
