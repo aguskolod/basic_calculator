@@ -1,0 +1,86 @@
+body {
+    background-color: beige;
+    font-family: 'Montserrat', sans-serif;
+}
+.container{
+    width: 500px;
+    height:300px;
+    position:relative;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 20%;
+    box-shadow: 3px 3px 30px;
+    background-color: rgb(219, 219, 207);
+    border-radius: 8px;
+}
+.Calculator {
+    position: absolute;
+    left: 42%;
+}
+.n1 {
+    position:absolute;
+    top:25%;
+    left: 15px;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid gray;
+    padding:7px;
+}
+.mas {
+    position:absolute;
+    top:22%;
+    left: 245px;
+}
+.n2 {
+    position:absolute;
+    top:25%;
+    left: 63%;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid gray;
+    padding:7px;
+    
+}
+.button {
+    font-family: 'Montserrat', sans-serif; 
+    height: 50px;
+    align-items: center;
+    padding: 10px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 10px;
+    margin:auto;
+    background-color: rgb(144, 144, 185);
+    border: none;
+    border-radius: 8px;
+}
+.button:hover {
+    cursor:pointer;
+    border-bottom: rgb(63, 63, 131) solid 3px;
+}
+.container #fully {
+    font-family: 'Montserrat', sans-serif; 
+    height: 50px;
+    align-items: center;
+    padding: 10px;
+    position: absolute;
+    top: 25px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin:auto;
+    text-align: center;
+}
+.n1:focus, .n2:focus {
+    animation: border .4s ease forwards;
+}
+@keyframes border {
+    0% {border-bottom: none;}
+    100% {border-bottom: 2px solid rgb(29, 194, 29);}
+}
+@keyframes anima {
+    0% {transform: translate(100%);}
+}
