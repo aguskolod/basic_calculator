@@ -1,6 +1,19 @@
 body {
     background-color: beige;
     font-family: 'Montserrat', sans-serif;
+    transition: .4s;
+}
+body.dark{
+    background-color: rgb(20, 20, 20);
+}
+body.dark .container{
+    background-color: rgb(59, 58, 58);
+}
+body.dark input,
+body.dark .sel{
+    transition: .2s;
+    background-color: rgb(20, 20, 20);
+    color: white;
 }
 .container{
     width: 500px;
@@ -48,6 +61,25 @@ body {
     padding:7px;
     
 }
+.darkModeButton{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    display: inline;
+    left: 20px;
+    top: 15px;
+    border: none;
+    transition: .4s;
+    background-color: black;
+}
+.darkModeButton:hover{
+    cursor: pointer;
+    opacity: .8;
+}
+body.dark .darkModeButton{
+    background-color: rgb(223, 223, 47);
+}
 .button {
     font-family: 'Montserrat', sans-serif; 
     height: 50px;
@@ -62,11 +94,13 @@ body {
     background-color: rgb(144, 144, 185);
     border: none;
     border-radius: 8px;
+    transition: .2s;
 }
 .button:hover {
     cursor:pointer;
     border-bottom: rgb(63, 63, 131) solid 3px;
 }
+
 .container #fully {
     font-family: 'Montserrat', sans-serif; 
     height: 50px;
@@ -81,16 +115,27 @@ body {
     text-align: center;
 }
 .n1:focus, .n2:focus {
-    animation: border .4s ease forwards;
+    animation: border .4s ease forwards; 
+}
+body.dark .n1:focus, body.dark .n2:focus {
+    animation: borderDark .4s ease forwards; 
 }
 @keyframes border {
     0% {border-bottom: none;}
     100% {border-bottom: 2px solid rgb(29, 194, 29);}
 }
+@keyframes borderDark {
+    0% {border-bottom: none;}
+    100% {border-bottom: 2px solid rgb(188, 50, 206);}
+}
 @keyframes anima {
     0% {transform: translate(100%);}
 }
-@keyframes linea {
-    0% {border-bottom: none;}
-    90% {border-bottom: 2px solid rgb(29, 194, 29);}
+.sel.active{
+    transition: .4s;
+    border-bottom: 2px solid rgb(29, 194, 29);
+}
+body.dark .sel.active{
+    transition: .4s;
+    border-bottom: 2px solid rgb(188, 50, 206);
 }

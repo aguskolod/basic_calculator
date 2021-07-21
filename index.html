@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="container">
+        <button onclick="darkMode()" id="darkModeButton" class="darkModeButton"></button>
         <p class="Calculator"><u>Calculator</u></p>
         <input type="number" onkeydown="return event.keyCode !== 69"  id="n1" class="n1" placeholder="Insert numer 1"></input>
         <select name="mas" onchange="changed()" id="sel" class="sel">
@@ -22,9 +23,19 @@
         <button id="button" class="button" onclick="clicked()">Result</button>
     </div>
     <script>
+        function darkMode(){
+            const btn = document.getElementById("darkModeButton")
+            btn.classList.toggle('on')
+            document.body.classList.toggle('dark')
+        }
         function changed() {
-            let item = document.getElementById("sel");
-            item.style.animation = 'linea .4s ease'
+            let item1 = document.getElementById("sel");
+            item1.classList.add("active")
+            setTimeout(() => {
+                item1.classList.remove("active")
+            },
+            1000 * 1
+            )
         }
         function clicked() {
             var n1 = document.getElementById("n1").value;
@@ -48,7 +59,7 @@
                 document.getElementById("fully").innerHTML = ""
                 document.getElementById("button").style.display = "block";
             },
-            6200)
+            1000 * 4)
         }
     </script>
 </body>
